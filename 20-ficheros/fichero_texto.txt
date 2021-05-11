@@ -1,0 +1,4 @@
+hola soy un archivo de texto de muchas lineas.
+esta es la segunda linea
+esta es la linea tres
+linea cuatrotexto agregado desde php  texto agregado desde php<br>texto agregado desde php<br>texto agregado desde php<br>texto agregado desde php<br>texto agregado desde php
