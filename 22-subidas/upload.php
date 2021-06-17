@@ -7,29 +7,30 @@
   dataTime es para cambiar la zona de horario del servidor
  *  */
 
-$archivo = $_FILES['file'];
-var_dump($archivo);
-die();
-
+$archivo = $_FILES['archivo'];
 $nombre = $archivo['name'];
 $tipo = $archivo['type'];
 
-//comprobando si es una imagen con algunos de los parametrso validos
 if ($tipo == "image/jpg" || $tipo == "image/jpeg" || $tipo == "image/png" || $tipo == "image/gif") {
 //comprobando si hay una carpeta especifica para guardar la imagen
     if (!is_dir('images')) {
         //creando la carpeta para las imagenes
         mkdir('images', 0777);
 
-        header("refresh: 6; URL=index.php "); // redirige a la pagina index.php
+        header("Refresh: 5; URL=index.php "); // redirige a la pagina index.php
 //moviendo el archivo de la carpeta temporal a la carpeta de imagenes.
         move_uploaded_file($archivo['tmp_name'], 'images/' . $nombre);
 
+        echo "<h1>Imagen subida correctamente </h1>";
+    } else {
+        header("Refresh: 5; URL=index.php "); // redirige a la pagina index.php
+        //moviendo el archivo de la carpeta temporal a la carpeta de imagenes.
+        move_uploaded_file($archivo['tmp_name'], 'images/' . $nombre);
         echo "<h1>Imagen subida correctamente </h1>";
     }
 } else {
 
     //redirige a la pagina indicada.
-    header("refresh: 6; URL=index.php ");
+    header("Refresh: 5; URL=index.php");
     echo "por favor revisa el formato de la imagen";
 }
